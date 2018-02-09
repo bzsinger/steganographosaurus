@@ -4,10 +4,10 @@ from PIL import Image
 
 stegoboi = Image.open("./stegosaurus.png")
 width, height = stegoboi.size
-#random.randint(0,1)
-key = [[(255,255,255) for x in range(width)] for y in range(height)]
 
-keypic = Image.new('RGB', (width, height), "red")
+key = [random.randint(0,1) for x in range(width * height)]
+
+keypic = Image.new('1', (width, height))
 keypic.putdata(key)
 keypic.save("key.bmp")
 
