@@ -11,5 +11,16 @@ keypic = Image.new('1', (width, height))
 keypic.putdata(key)
 keypic.save("key.bmp")
 
+msg = "Hello World!"
+def tobits(msg):
+    arr = bytearray(msg, 'ascii')
+    results = []
+    for i in arr:
+        results.append(bin(i)[2:])
+    return results
+
+
 if (__name__ == "__main__"):
-    print(key)
+
+    print tobits(msg)
+    #print(key)
