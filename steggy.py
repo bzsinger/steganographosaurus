@@ -17,20 +17,13 @@ def read_key(filename="key.bmp"):
     return [i%2 for i in list(keypic.getdata())]
 
 
-msg = "Hello World!"
 def tobits(msg):
     return [bin(i)[2:] for i in bytearray(msg, 'ascii')]
 
-#Need to cite 
+# https://goo.gl/4Ck19f
 def frombits(bin_list):
     return ''.join([chr(int(x, 2)) for x in bin_list])
 
 
 if (__name__ == "__main__"):
-    generate_key()
-
-    print(read_key())
-
-    # print(tobits(msg))
-    # result = tobits(msg)
-    # print(frombits(result)) 
+    pass
