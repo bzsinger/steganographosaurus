@@ -1,8 +1,9 @@
 import random
 from PIL import Image
 
-def generate_key(image, message, filename="key.bmp"):
-    width, height = image.size
+def generate_key(filename, message, keyname="key.bmp"):
+    stegoboi = Image.open(filename)
+    width, height = stegoboi.size
     length = len(message) * 8
     key_indices = random.sample(range(width * height), length)
 
@@ -11,8 +12,9 @@ def generate_key(image, message, filename="key.bmp"):
         key[i] = 1
     keypic = Image.new('1', (width, height))
     keypic.putdata(key)
-    keypic.save(filename)
+    keypic.save(keyname)
 
-def read_key(filename="key.bmp"):
-    keypic = Image.open(filename)
+def read_key(keyname="key.bmp"):
+    keypic = Image.open(keyname)
     return [i%2 for i in list(keypic.getdata())]
+
