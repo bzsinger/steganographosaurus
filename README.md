@@ -10,6 +10,22 @@ Our group members will embed our names into the below PNG image of a stegosaurus
 
 ![Stego Boi](https://github.com/bzsinger/steganographosaurus/raw/master/stegosaurus.png "Stego Boi")
 
+## Run Instructions
+```bash
+git clone git@github.com:bzsinger/steganographosaurus.git
+cd steganographosaurus
+# encrypt
+python steggy.py -e "<message>" <input_picture_path> <OPTIONAL_key>
+# decrypt
+python steggy.py -d <input_picture_path> <key>
+```
+
+### Example
+```bash
+python steggy.py -e "Sue Anne Davis, Akash Kwatra, Benny Singer" ./stegosaurus.png
+python steggy.py -d ./stego.bmp ./key.bmp
+```
+
 ### Group Members
  - [Akash Kwatra](https://github.com/akashkw)
 
