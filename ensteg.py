@@ -11,9 +11,9 @@ def write_stego(key, message, filename, output = "stego.bmp"):
     width, height = stegoboi.size
     #Go through each pixel, and if the pixel is off in the key, place a bit
     #in the last part of the pixel
-    for x in range(height):
-        for y in range(width): 
-            if key[y + x*width] == 1 and bit_place < len(bin_string):            
+    for y in range(height):
+        for x in range(width): 
+            if key[x + y*width] == 1 and bit_place < len(bin_string):            
                 pixel = stegoboi.getpixel((x,y))
                 pixel = tuple([((i >> 1) << 1) + int(bin_string[bit_place]) for i in pixel])
                 bit_place +=1

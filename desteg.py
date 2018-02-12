@@ -12,10 +12,10 @@ def decode_stego(key, filename="stego.bmp"):
     num_ones = key.count(1);
     stegoboi = Image.open(filename)
     width, height = stegoboi.size
-    for x in range(height):
-        for y in range(width):
-            if key[y + x*width] == 1 and len(bin_list) < num_ones:            
+    for y in range(height):
+        for x in range(width):
+            if key[x + y*width] == 1 and len(bin_list) < num_ones:            
                 pixel = stegoboi.getpixel((x,y))
-                bin_list.append((pixel[0] %2 != 0))
+                bin_list.append(str(int((pixel[0] %2 != 0))))
                 bit_place +=1
-    return frombits("".join(bin_list)) 
+    return frombits("".join(bin_list))
