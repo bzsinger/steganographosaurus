@@ -3,7 +3,8 @@ from PIL import Image
 
 # https://goo.gl/4Ck19f
 def frombits(bin_list):
-    return ''.join([chr(int(x, 2)) for x in bin_list])
+    bin_list = [bin_list[pos:pos + 8] for pos in range(0, len(blist), 8)]
+    return ''.join([chr(int(x) for x in bin_list])
 
 def decode_stego(key, filename):
     bit_place = 0;
