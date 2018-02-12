@@ -21,3 +21,4 @@ def write_stego(key, message, filename):
                 stego2boi.putpixel((x,y), pixelO) 
     stego2boi.save("stego2.bmp")
 
+blist = '0100100001100101011011000110110001101111001000000101011101101111011100100110110001100100' 
