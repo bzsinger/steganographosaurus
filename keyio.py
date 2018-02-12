@@ -13,8 +13,8 @@ def generate_key(filename, message, keyname="key.bmp"):
     keypic = Image.new('1', (width, height))
     keypic.putdata(key)
     keypic.save(keyname)
+    return key
 
 def read_key(keyname="key.bmp"):
     keypic = Image.open(keyname)
     return [i%2 for i in list(keypic.getdata())]
-
