@@ -2,23 +2,20 @@ import os, sys
 from PIL import Image
 
 def tobits(message):
-    return "".join("{:08b}".format(i) for i in bytearray(message, 'ascii')])
+    return "".join(["{:08b}".format(i) for i in bytearray(message, 'ascii')])
 
-def write_stego(key, message, filename):
+def write_stego(key, message, filename, output = "stego.bmp"):
     bit_place = 0
-    bin_list = tobits(message)
+    bin_string = tobits(message)
     stegoboi = Image.open(filename)
     width, height = stegoboi.size
     #Go through each pixel, and if the pixel is off in the key, place a bit
     #in the last part of the pixel
     for x in range(height):
         for y in range(width): 
-            if key[y + x*width] == 1 and bit_place < len(bin_list):            
-                pixelO = stegoboi.getpixel((x,y))
-                #print(int(bin_list[bit_place]))
-                pixelO = tuple([((i >> 1) << 1) + int(bin_list[bit_place]) for i in pixelO])
+            if key[y + x*width] == 1 and bit_place < len(bin_string):            
+                pixel = stegoboi.getpixel((x,y))
+                pixel = tuple([((i >> 1) << 1) + int(bin_string[bit_place]) for i in pixel])
                 bit_place +=1
-                stego2boi.putpixel((x,y), pixelO) 
-    stego2boi.save("stego2.bmp")
-
-blist = '0100100001100101011011000110110001101111001000000101011101101111011100100110110001100100' 
+                stegoboi.putpixel((x,y), pixel) 
+    stegoboi.save(output)
