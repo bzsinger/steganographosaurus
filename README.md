@@ -1,4 +1,8 @@
 # steganographosaurus
+
+GO HERE FOR FULL REPORT
+https://www.gitbook.com/book/tiramisueanne/steganographosaurus/details
+
 Hides a message in the least significant bits of a png image
 
 | Algorithm             | File Format |
